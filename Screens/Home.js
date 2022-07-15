@@ -2,12 +2,10 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  View,
-  Button,
   ImageBackground,
-  Image,
   TouchableOpacity,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const Home = ({ navigation }) => {
   return (
@@ -15,26 +13,26 @@ export const Home = ({ navigation }) => {
       source={require("../assets/th.jpg")}
       style={{ flex: 1, display: "flex" }}
     >
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Info", { city: "tbilisi" })}
         >
-          <Text>Tbilisi</Text>
+          <Text style={styles.buttonText}>Tbilisi</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Info", { city: "batumi" })}
         >
-          <Text>Batumi</Text>
+          <Text style={styles.buttonText}>Batumi</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Info", { city: "kutaisi" })}
         >
-          <Text>Kutaisi</Text>
+          <Text style={styles.buttonText}>Kutaisi</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };
@@ -47,8 +45,6 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   button: {
-    color: "#fff",
-    fontSize: 24,
     borderStyle: "dotted",
     borderBottomWidth: 2,
     borderColor: "white",
@@ -57,8 +53,11 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontWeight: 700,
+  },
+  buttonText: {
+    fontSize: 24,
     textTransform: "capitalize",
-    fontFamily: "sans-serif",
+    color: "#fff",
+    fontWeight: "700",
   },
 });

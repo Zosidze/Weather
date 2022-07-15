@@ -1,4 +1,6 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+
+const width = Dimensions.get("screen").width - 32;
 
 const icons = {
   cloudy: require("../assets/cloudy-day.png"),
@@ -16,7 +18,6 @@ const generateIcon = (temp) => {
 };
 
 export const Day = ({ day }) => {
-  console.log(day);
   return (
     <View style={styles.container}>
       <Text style={styles.weekDay}>
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    minWidth: "100vw",
+    width: width,
     padding: 16,
     backgroundColor: "#ffffff80",
   },

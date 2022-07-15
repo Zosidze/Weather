@@ -1,13 +1,16 @@
 import React from "react";
 import {
-  View,
   Text,
   StyleSheet,
   Button,
   FlatList,
   ImageBackground,
+  Dimensions,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Day } from "../components/Day";
+
+const width = Dimensions.get("screen").width;
 
 const coordinates = {
   tbilisi: {
@@ -48,7 +51,7 @@ export const Info = ({ route, navigation }) => {
       source={require("../assets/unnamed.png")}
       style={{ flex: 1, display: "flex" }}
     >
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Button title="Back" onPress={() => navigation.goBack()}></Button>
         <Text style={styles.city}>{city}</Text>
         <Text style={styles.current}>{weather.current.temp}°C</Text>
@@ -56,19 +59,17 @@ export const Info = ({ route, navigation }) => {
           data={weather.daily}
           renderItem={({ item }) => <Day day={item} />}
         ></FlatList>
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    minWidth: width,
     flex: 1,
     display: "flex",
-    paddingTop: 20,
     alignItems: "center",
-    paddingHorizontal: 20,
     gap: 12,
   },
   icons: {
