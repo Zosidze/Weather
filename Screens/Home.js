@@ -19,23 +19,20 @@ export const Home = ({ navigation }) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Info", { city: "tbilisi" })}
-          title="Tbilisi"
         >
-          Tbilisi
+          <Text>Tbilisi</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Info", { city: "batumi" })}
-          title="Batumi"
         >
-          Batumi
+          <Text>Batumi</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Info", { city: "kutaisi" })}
-          title="Kutaisi"
         >
-          kutaisi
+          <Text>Kutaisi</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>

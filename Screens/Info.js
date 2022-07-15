@@ -43,7 +43,6 @@ export const Info = ({ route, navigation }) => {
   if (!weather) {
     return <Text>Loading...</Text>;
   }
-  console.log(weather);
   return (
     <ImageBackground
       source={require("../assets/unnamed.png")}
